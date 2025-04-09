@@ -1,0 +1,25 @@
+attack:
+  type: "rl_attack"  # или "pgd", "fgsm", "cw", "rl_attack"
+  params:
+    epsilon: 0.07  # Параметры для FGSM/PGD
+    alpha: 0.1     # Параметры для PGD
+    num_steps: 50   # Параметры для PGD/CW
+    confidence: 20 # Параметры для CW
+    lr: 0.01        # Параметры для CW
+    env_name: "OnlineAttackEnv-v0"
+    agent_path: "/Users/dasha/Documents/adversarial_framework_0604/agents/rl_agent.zip"
+    device: "cpu"
+    visualize: True  # Включаем визуализацию
+    save_results: True  # Включаем сохранение результатов
+
+model:
+  type: "pytorch"
+  params:
+    input_size: [3, 112, 112]
+    num_classes: 7
+
+data:
+  source: "webcam"
+  preprocess:
+    resize: [112, 112]
+    normalize: true

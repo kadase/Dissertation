@@ -1,0 +1,15 @@
+hyperparams:
+  policy_type: "CnnPolicy"
+  total_timesteps: 1000000
+  n_envs: 4
+  learning_rate: 5e-6
+  policy_kwargs:
+    features_extractor_class: "CustomCNN"
+    features_extractor_kwargs: {"features_dim": 256}
+  max_grad_norm: 0.5
+  clip_range: 0.2
+  ent_coef: 0.001
+
+paths:
+  agents: "agents/"
+  logs: "logs/"
